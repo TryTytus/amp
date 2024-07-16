@@ -45,9 +45,6 @@ export class PostControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
-  @swagger.ApiBody({
-    type: PostCreateInput,
-  })
   async createPost(@common.Body() data: PostCreateInput): Promise<Post> {
     return await this.service.createPost({
       data: data,
@@ -125,9 +122,6 @@ export class PostControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
-  })
-  @swagger.ApiBody({
-    type: PostUpdateInput,
   })
   async updatePost(
     @common.Param() params: PostWhereUniqueInput,
